@@ -1,6 +1,6 @@
 #include "catch2/catch.hpp"
-#include "logicexpr/expression.h"
-#include "logicexpr/visitor.h"
+#include "logex/expression.h"
+#include "logex/visitor.h"
 
 TEST_CASE("expression visitor", "[api]")
 {
