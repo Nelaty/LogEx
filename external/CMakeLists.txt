@@ -27,3 +27,12 @@ if(NOT TARGET Catch2)
             GIT_TAG v2.13.8
     )
 endif()
+
+if(NOT TARGET gsl)
+    CPMAddPackage(
+            NAME gsl
+            GIT_REPOSITORY https://github.com/microsoft/GSL
+            GIT_TAG v4.0.0
+    )
+endif()
+
