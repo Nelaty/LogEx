@@ -13,6 +13,11 @@ namespace expr
         switch(op)
         {
             case BinaryOpType::EQUALS: return "==";
+            case BinaryOpType::NOT_EQUAL: return "!=";
+            case BinaryOpType::LESS: return "<";
+            case BinaryOpType::LESS_EQUAL: return "<=";
+            case BinaryOpType::GREATER: return ">";
+            case BinaryOpType::GREATER_EQUAL: return ">=";
             case BinaryOpType::LOGICAL_AND: return "AND";
             case BinaryOpType::LOGICAL_OR: return "OR";
         }
@@ -25,7 +30,7 @@ namespace expr
         e.evaluate(*this);
         auto result = mVisited.top();
         mVisited = {};
-        return result;
+        return "WHERE "s + result;
     }
 
     void SqlExpressionVisitor::visit(ExpressionUnary& e)
