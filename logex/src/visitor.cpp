@@ -1,5 +1,5 @@
-#include "logicexpr/visitor.h"
-#include "logicexpr/expression.h"
+#include "logex/visitor.h"
+#include "logex/expression.h"
 
 #include <sstream>
 

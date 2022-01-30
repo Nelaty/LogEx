@@ -1,4 +1,4 @@
-#include "logicexpr/api.h"
+#include "logex/api.h"
 
 std::string Version::library()
 {

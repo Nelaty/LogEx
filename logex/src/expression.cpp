@@ -1,5 +1,5 @@
-#include "logicexpr/expression.h"
-#include "logicexpr/visitor.h"
+#include "logex/expression.h"
+#include "logex/visitor.h"
 
 namespace expr
 {
