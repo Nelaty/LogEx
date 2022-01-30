@@ -13,6 +13,11 @@ namespace expr
     enum class BinaryOpType
     {
         EQUALS,
+        NOT_EQUAL,
+        LESS,
+        LESS_EQUAL,
+        GREATER,
+        GREATER_EQUAL,
         LOGICAL_AND,
         LOGICAL_OR
     };
@@ -59,4 +64,14 @@ namespace expr
         Ptr          mLeft;
         Ptr          mRight;
     };
+
+    expr::IExpression::Ptr operator==(const expr::Attribute& lhs, const expr::Attribute& rhs);
+    expr::IExpression::Ptr operator!=(const expr::Attribute& lhs, const expr::Attribute& rhs);
+    expr::IExpression::Ptr operator<(const expr::Attribute& lhs, const expr::Attribute& rhs);
+    expr::IExpression::Ptr operator<=(const expr::Attribute& lhs, const expr::Attribute& rhs);
+    expr::IExpression::Ptr operator>(const expr::Attribute& lhs, const expr::Attribute& rhs);
+    expr::IExpression::Ptr operator>=(const expr::Attribute& lhs, const expr::Attribute& rhs);
+
+    expr::IExpression::Ptr operator&&(const expr::IExpression::Ptr& lhs, const expr::IExpression::Ptr& rhs);
+    expr::IExpression::Ptr operator||(const expr::IExpression::Ptr& lhs, const expr::IExpression::Ptr& rhs);
 }

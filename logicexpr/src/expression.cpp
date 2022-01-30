@@ -48,4 +48,62 @@ namespace expr
     {
         return mRight;
     }
+
+    expr::IExpression::Ptr operator==(const expr::Attribute& lhs, const expr::Attribute& rhs)
+    {
+        return std::make_shared<expr::ExpressionBinary>(
+                std::make_shared<expr::ExpressionUnary>(lhs),
+                std::make_shared<expr::ExpressionUnary>(rhs),
+                expr::BinaryOpType::EQUALS);
+    }
+
+    expr::IExpression::Ptr operator!=(const expr::Attribute& lhs, const expr::Attribute& rhs)
+    {
+        return std::make_shared<expr::ExpressionBinary>(
+                std::make_shared<expr::ExpressionUnary>(lhs),
+                std::make_shared<expr::ExpressionUnary>(rhs),
+                expr::BinaryOpType::NOT_EQUAL);
+    }
+
+    expr::IExpression::Ptr operator<(const expr::Attribute& lhs, const expr::Attribute& rhs)
+    {
+        return std::make_shared<expr::ExpressionBinary>(
+                std::make_shared<expr::ExpressionUnary>(lhs),
+                std::make_shared<expr::ExpressionUnary>(rhs),
+                expr::BinaryOpType::LESS);
+    }
+
+    expr::IExpression::Ptr operator<=(const expr::Attribute& lhs, const expr::Attribute& rhs)
+    {
+        return std::make_shared<expr::ExpressionBinary>(
+                std::make_shared<expr::ExpressionUnary>(lhs),
+                std::make_shared<expr::ExpressionUnary>(rhs),
+                expr::BinaryOpType::LESS_EQUAL);
+    }
+
+    expr::IExpression::Ptr operator>(const expr::Attribute& lhs, const expr::Attribute& rhs)
+    {
+        return std::make_shared<expr::ExpressionBinary>(
+                std::make_shared<expr::ExpressionUnary>(lhs),
+                std::make_shared<expr::ExpressionUnary>(rhs),
+                expr::BinaryOpType::GREATER);
+    }
+
+    expr::IExpression::Ptr operator>=(const expr::Attribute& lhs, const expr::Attribute& rhs)
+    {
+        return std::make_shared<expr::ExpressionBinary>(
+                std::make_shared<expr::ExpressionUnary>(lhs),
+                std::make_shared<expr::ExpressionUnary>(rhs),
+                expr::BinaryOpType::GREATER_EQUAL);
+    }
+
+    expr::IExpression::Ptr operator&&(const expr::IExpression::Ptr& lhs, const expr::IExpression::Ptr& rhs)
+    {
+        return std::make_shared<expr::ExpressionBinary>(lhs, rhs, expr::BinaryOpType::LOGICAL_AND);
+    }
+
+    expr::IExpression::Ptr operator||(const expr::IExpression::Ptr& lhs, const expr::IExpression::Ptr& rhs)
+    {
+        return std::make_shared<expr::ExpressionBinary>(lhs, rhs, expr::BinaryOpType::LOGICAL_OR);
+    }
 }
