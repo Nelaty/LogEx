@@ -1,10 +1,18 @@
 #pragma once
 #include <string>
 
-class Version
+namespace logex
 {
-public:
+    class Version
+    {
+    public:
+        static constexpr int api() { return 1; }
 
-    static constexpr int api(){ return 1; }
-    static std::string library();
-};
+        static Version library();
+        static std::string libraryString();
+
+        std::uint16_t mMajor;
+        std::uint16_t mMinor;
+        std::uint16_t mPatch;
+    };
+}

@@ -15,5 +15,8 @@ _deps
 /cmake-build-debug/
 /cmake-build-release/
 
+# Generated source files
+/logex/src/cmake/*
+
 # Generated documentation
 /docs/doxygen
